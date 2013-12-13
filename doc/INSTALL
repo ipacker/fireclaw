@@ -1,0 +1,48 @@
+Fireclaw Installation
+---------------------
+
+1) Compilation
+
+After extracting the archive to a directory of your choice, simply type 
+"make". If you are using freeBSD I suggest you edit os.h first, and 
+uncomment the 'FREEBSD' define.
+
+2) Initial setup
+
+First you'll need to add yourself as the first admin and set the first 
+channel in the database. Todo this, run "./makeuser". Enter a username, 
+password and channel when prompted. This program will write out 2 files, 
+chans.txt and admins.txt. These are where users and channels are stored on 
+disk.
+
+3) Configuration File
+
+Now copy claw.conf from doc/ into your main directory. Open it with your 
+editor of choice (I strongly suggest against using windows to edit this 
+file). The config is commented to help you through it. The most important 
+things to get right are the servers and nick/user.
+
+4) Finished
+
+You now have the 'claw' executable as compiled in step 1). You have 
+admins.txt and chans.txt from step 2), and you have a configuration file 
+(claw.conf) from step 3). Now just type "./claw" to start up the bot. You 
+will either get config file errors or warnings, or it will fork off into 
+the background and start connecting to the first server in it's list.
+
+Once it appears on IRC, if your ircd supports "accounts" and your username 
+matches your account name you can simply /msg botname <anything> and it 
+will detect your account and automatically log you in. If not, use /msg 
+botname login username password.
+
+From there on try /msg botname help and /dcc chat botname
+
+For further documentation on commands and flags see 
+http://www.fireclaw.org/
+
+5) Putting the bot on crontab.
+
+There is a script in doc/ called 'clawcron', you can copy this to your 
+main fireclaw directory and put it on crontab. It will check if the bot is 
+running and if it is not, start it up again.
+e.g "*/5 * * * * cd /home/smith/fireclaw/ && ./clawcron > /dev/null"

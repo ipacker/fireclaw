@@ -1,0 +1,67 @@
+Fireclaw 0.93 (16/07/03)
+----------------------
+  o [NEW] Bots can get invite and ops from each other with use of the 
+          'trusted flag' (t) on the botnet. Also added flag 'l' to force a 
+          link to be a leaf. Other general botnet improvments.
+  o [NEW] Botnet flag: 'd' for allowing multiple bots to take over each over if 
+          the master dies.
+
+Fireclaw 0.92 (25/06/03)
+----------------------
+  o [FIX] Segfault on socket death under certain circumstances - how on 
+          earth did this last this long?!
+  o [NEW] Botnet now tracks what bots are linked and what users are 
+          connected. This is reflected in the commands: .who and .linktree
+          Also added .connect <mask>.
+
+Fireclaw 0.91 (24/06/03)
+-----------------------
+  o [NEW] boot command for removing unwanted dcc users.
+  o [NEW] Reverse DCC, so you can enter a dcc chat session with the bot
+          even if you are behind a firewall. (/msg bot dccme)
+          ** This is ADMINS ONLY (doesn't work for guests) **
+          Also using the same code, you can telnet the bot to get access.
+  o [FIX] Increased 'broken server?' limit. This seems to happen a bit too
+          often for my liking...
+  o [FIX] strncpy() replaced with mystrncpy(), fixing a number of 
+          potentional bugs waiting to happen.
+  o [FIX] Old random word list and vhost list weren't cleared when config 
+          was rehashed resulting in duplicate entries and all sorts of 
+          crap.
+  o [NEW] Basic botnet. Just shared partyline for now - I don't really 
+          suggest you use it yet.
+  o [FIX] Timeskew detection improved a bit, it now wipes all flood + 
+          repeat settings - otherwise the bot can end up going haywire.
+
+Fireclaw 0.9
+-----------------------
+  o [NEW] Sockets rewriten from scratch.
+  o [FIX] CPU usage fixed by about 75% (!!)
+  o [NEW] DCC Chat - partyline and admin commands. Guest users are also 
+          able to connect (to chat only). This is all configurable in the 
+          config.
+  o [NEW] On-join detector. Fireclaw can connect a second client every X
+          X minutes - from a random IP, nick, realname, ident. This is 
+          flag 'd', and it will detect onjoin msgs and ban the offenders.
+  o [FIX] unban command now reports hardban and softban removals seperatly 
+          (less confusing)
+  o [FIX] Time skews shouldn't screw up the bot now. (timers are completly 
+          reset if it is detected that system time has been changed 
+          backwards, or excessively forwards). I am not confident this is 
+          good solution, it may need revising in the future.
+
+Fireclaw 0.85 
+-----------------------
+  o [FIX] Crash when encountering a blank entry in exclude.txt.
+  o [NEW] SIGHUP now causes config reload.
+
+Fireclaw 0.84 (17/06/03)
+-----------------------
+  o [NEW] +VO flags, voiceall & opall.
+  o [FIX] +l improved, wont "lock up" the chan too long.
+  o [NEW] ./makeuser added, to make initial admins.txt and chans.txt
+  o [NEW] INSTALL file written. Further docs yet to come.
+
+Fireclaw 0.83 (16/06/03)
+-----------------------
+  o changelog started

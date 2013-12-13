@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if test -r claw.pid; then
+  pid=`cat claw.pid`
+  if `kill -USR1 $pid >/dev/null 2>&1`; then
+    exit 0
+  fi
+  rm -f claw.pid
+fi
+echo "reloading fireclaw..."
+./claw
+exit 0
+

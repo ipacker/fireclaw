@@ -1,0 +1,4 @@
+busy
+brb
+away
+afk
